@@ -1,8 +1,8 @@
 import { Response } from 'express';
-import httpStatus from 'http-status';
+import { AuthenticatedRequest } from '@/middlewares';
 import { ticketsService } from '@/services';
+import httpStatus from 'http-status';
 import { InputTicketBody } from '@/protocols';
-import { AuthenticatedRequest } from "@/middlewares"
 
 export async function getTicketTypes(req: AuthenticatedRequest, res: Response) {
     const ticketTypes = await ticketsService.getTicketTypes()

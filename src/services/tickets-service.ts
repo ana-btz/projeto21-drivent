@@ -1,6 +1,6 @@
 import { notFoundError } from "@/errors";
 import { CreateTicketParams } from "@/protocols";
-import { enrollmentRepository, ticketsRepository } from "@/repositories";
+import { enrollmentRepository, ticketsRepository } from "@/repositories"
 
 async function getTicketTypes() {
     const ticketTypes = await ticketsRepository.findTicketTypes()
@@ -31,9 +31,8 @@ async function createTicket(userId: number, ticketTypeId: number) {
     return ticket
 }
 
-
 export const ticketsService = {
-    getTicketTypes,
     getTicketByUserId,
+    getTicketTypes,
     createTicket
 }
