@@ -1,11 +1,13 @@
 import app, { init } from "@/app";
-import supertest from "supertest";
-import httpStatus from "http-status";
-import faker from "@faker-js/faker";
-import * as jwt from 'jsonwebtoken';
-import { prisma } from "@/config";
 import { cleanDb, generateValidToken } from "../helpers";
-import { createEnrollmentWithAddress, createHotel, createPayment, createRoomWithHotelId, createTicket, createTicketType, createUser } from "../factories";
+import supertest from "supertest";
+import { prisma } from '@/config';
+import httpStatus from 'http-status';
+import faker from '@faker-js/faker';
+import { createEnrollmentWithAddress, createPayment, createTicket, createTicketType, createUser } from "../factories";
+import * as jwt from 'jsonwebtoken';
+import { TicketStatus } from "@prisma/client";
+import { createHotel, createRoomWithHotelId } from "../factories/hotels-factory";
 
 beforeAll(async () => {
     await init();
@@ -291,4 +293,3 @@ describe('GET /hotels/:holelId', () => {
         })
     })
 })
-
